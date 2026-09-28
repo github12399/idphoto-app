@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>证件照工具</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ip-wrap">
+    <section class="ip-hero">
+      <h1>证件照工具</h1>
+      <p>上传照片 → 选规格 → 换背景色 → 导出精确像素，照片全程在本地处理。</p>
+    </section>
+    <div class="ip-grid">
+      <div class="ip-stage-card">
+        <div id="ip-stage">
+          <canvas id="ip-view"></canvas>
+          <canvas id="ip-overlay"></canvas>
+          <div id="ip-empty">点下方「选择照片」，或把照片拖进来 / 直接粘贴截图</div>
+        </div>
+        <div class="ip-stage-tools">
+          <label class="ip-btn primary">选择照片<input id="ip-file" type="file" accept="image/*" /></label>
+          <button id="ip-reset" class="ip-btn" type="button">重置裁剪</button>
+          <label>缩放<input id="ip-zoom" type="range" min="25" max="100" value="100" /></label>
+        </div>
+      </div>
+      <div class="ip-panel">
+        <div class="ip-card">
+          <h2>预览</h2>
+          <div class="ip-preview-wrap"><canvas id="ip-preview"></canvas></div>
+          <p id="ip-out-info" class="muted" style="margin:8px 0 0">输出：—</p>
+        </div>
+        <div class="ip-card">
+          <h2>规格</h2>
+          <div id="ip-spec" class="ip-specs"></div>
+          <p style="margin:8px 0 0"><b class="mono" id="ip-spec-size"></b> <span class="muted" id="ip-spec-note"></span></p>
+        </div>
+        <div class="ip-card">
+          <h2>背景色</h2>
+          <div id="ip-bg" class="ip-chips"></div>
+          <div class="ip-custom-row">
+            <input id="ip-custom" type="color" value="#438edb" title="自定义背景颜色" />
+            <span>自定义颜色（任意背景色）</span>
+          </div>
+          <label>容差 <span class="mono" id="ip-tol-val">40</span> —— 换底不干净调大，头发被抠了调小
+            <input id="ip-tol" type="range" min="20" max="140" value="40" />
+          </label>
+        </div>
+        <div class="ip-card">
+          <h2>导出</h2>
+          <label>分辨率 <select id="ip-dpi"></select></label>
+          <div class="ip-fmt">
+            <label><input type="radio" name="ip-fmt" value="JPG" checked /> JPG</label>
+            <label><input type="radio" name="ip-fmt" value="PNG" /> PNG</label>
+          </div>
+          <div id="ip-q-row">
+            <label>JPG 质量 <span class="mono" id="ip-q-val">95</span>
+              <input id="ip-q" type="range" min="70" max="100" value="95" />
+            </label>
+          </div>
+          <button id="ip-download" class="ip-btn primary big" type="button">保存证件照</button>
+        </div>
+      </div>
+    </div>
+    <p class="ip-privacy">照片全程在你的电脑本地处理，不上传、不保存，关掉窗口就没了。</p>
+  </div>
+  <script src="idphoto.js" defer></script>
+</body>
+</html>

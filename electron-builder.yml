@@ -1,0 +1,59 @@
+appId: com.zcode.idphoto
+productName: 证件照工具
+copyright: 证件照工具
+
+directories:
+  output: release
+  buildResources: build
+
+files:
+  - app/**/*
+  - electron/**/*
+  - package.json
+
+asar: true
+compression: maximum
+
+# 发布由 GitHub Actions 独立步骤完成，不用 electron-builder 内置发布
+publish: null
+
+win:
+  # 产物名用英文：GitHub Release 资产名会剥中文
+  target:
+    - target: portable
+      arch: [x64]
+    - target: nsis
+      arch: [x64]
+
+nsis:
+  oneClick: true
+  perMachine: false
+  deleteAppDataOnUninstall: true
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  artifactName: IDPhoto-Setup-${version}.exe
+
+portable:
+  artifactName: IDPhoto-Portable-${version}.exe
+
+# macOS：未签名分发，首次打开需右键 → 打开；一个 Apple 芯片 runner 交叉出双 arch dmg
+mac:
+  target:
+    - target: dmg
+      arch: [arm64]
+    - target: dmg
+      arch: [x64]
+  category: public.app-category.photography
+  artifactName: IDPhoto-mac-${arch}-${version}.dmg
+  identity: null
+
+# Linux：AppImage 免安装（chmod +x 直接跑），deb 给 Ubuntu/Debian 用户
+linux:
+  target:
+    - target: AppImage
+      arch: [x64]
+    - target: deb
+      arch: [x64]
+  category: Graphics
+  artifactName: IDPhoto-linux-${version}.${ext}
+  maintainer: zcode

@@ -1,0 +1,60 @@
+
+.ip-hero { margin: 8px 0 18px }
+.ip-hero h1 { font-size: 1.5rem; margin: 0 0 6px }
+.ip-hero p { margin: 0; color: #667 }
+.ip-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: 18px; align-items: start }
+@media (max-width: 860px) { .ip-grid { grid-template-columns: 1fr } }
+
+.ip-stage-card, .ip-card { background: #fff; border: 1px solid #e8e4dc; border-radius: 14px; padding: 14px }
+.ip-stage-card { padding: 10px }
+
+#ip-stage { position: relative; height: clamp(300px, 54vh, 560px); background: #23272e; border-radius: 10px; overflow: hidden; touch-action: none }
+#ip-view, #ip-overlay { position: absolute; }
+#ip-view { display: none }
+#ip-empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; text-align: center; color: #9aa3ad; padding: 24px; font-size: 0.95rem }
+
+.ip-stage-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 10px }
+.ip-stage-tools label { display: inline-flex; align-items: center; gap: 6px; color: #556; font-size: 0.85rem }
+.ip-btn { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #d8d2c6; background: #fff; color: #333; border-radius: 9px; padding: 8px 14px; font-size: 0.9rem; cursor: pointer }
+.ip-btn:hover { border-color: #2ea3ff; color: #2ea3ff }
+.ip-btn.primary { background: #2ea3ff; border-color: #2ea3ff; color: #fff }
+.ip-btn.primary:hover { background: #1b8fe8 }
+.ip-btn.big { width: 100%; justify-content: center; padding: 12px; font-size: 1rem }
+#ip-file { display: none }
+#ip-zoom { flex: 1; min-width: 90px; accent-color: #2ea3ff }
+
+.ip-panel { display: grid; gap: 14px }
+.ip-card h2 { font-size: 0.95rem; margin: 0 0 10px; color: #445 }
+
+.ip-preview-wrap { display: flex; justify-content: center; background: repeating-conic-gradient(#f2f0ea 0 25%, #fff 0 50%) 0 0/16px 16px; border-radius: 10px; padding: 10px }
+#ip-preview { max-width: 62%; height: auto; box-shadow: 0 2px 10px rgba(0,0,0,0.12) }
+
+.ip-specs { display: flex; gap: 8px; flex-wrap: wrap }
+.ip-specs button { flex: 1; min-width: 84px; border: 1px solid #d8d2c6; background: #fff; border-radius: 10px; padding: 8px 6px; cursor: pointer; font-size: 0.92rem }
+.ip-specs button small { display: block; color: #889; font-size: 0.72rem; margin-top: 3px }
+.ip-specs button.on { border-color: #2ea3ff; color: #2ea3ff; background: #f0f8ff }
+
+.ip-chips { display: flex; gap: 8px; flex-wrap: wrap }
+.chip { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #d8d2c6; background: #fff; border-radius: 999px; padding: 6px 12px; font-size: 0.88rem; cursor: pointer }
+.chip .dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.12) }
+.chip .dot.orig { background: conic-gradient(#f66, #fc6, #6c9, #69c, #f66) }
+.chip.on { border-color: #2ea3ff; color: #2ea3ff; background: #f0f8ff }
+.ip-custom-row { display: flex; align-items: center; gap: 8px; margin: 10px 0 2px; color: #556; font-size: 0.88rem }
+#ip-custom { width: 34px; height: 26px; padding: 0; border: 1px solid #d8d2c6; border-radius: 6px; background: #fff; cursor: pointer }
+#ip-custom.on { outline: 2px solid #2ea3ff }
+
+.ip-card label { display: block; font-size: 0.88rem; color: #556; margin-top: 8px }
+.ip-card input[type=range] { width: 100%; accent-color: #2ea3ff }
+.ip-card select { border: 1px solid #d8d2c6; border-radius: 8px; padding: 6px 8px; font-size: 0.9rem; background: #fff }
+.ip-fmt { display: flex; gap: 16px; margin-top: 8px; font-size: 0.9rem }
+.ip-fmt label { display: inline-flex; align-items: center; gap: 5px }
+#ip-q-row { margin-top: 4px }
+#ip-download { margin-top: 12px }
+.mono { font-family: ui-monospace, Consolas, monospace }
+.muted { color: #889 }
+.ip-privacy { margin: 16px 0 0; color: #889; font-size: 0.82rem; text-align: center }
+
+/* ---------- 桌面版基础 ---------- */
+* { box-sizing: border-box }
+body { margin: 0; font-family: "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", system-ui, sans-serif; background: #f7f5f1; color: #333 }
+.ip-wrap { max-width: 1080px; margin: 0 auto; padding: 22px 18px 30px }
